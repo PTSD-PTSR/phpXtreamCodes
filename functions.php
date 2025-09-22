@@ -585,6 +585,17 @@ function get_series_info($pdo, $series_id=null) {
 //    echo '$directory: '.print_r($directory,1)."<BR>\r\n";
 //    echo '$lastFolder: '.print_r($lastFolder,1)."<BR>\r\n";
 //    exit();
+
+    $countFolders = countFolders($row['path']);
+//    echo '$countFolders: '.print_r($countFolders,1)."<BR>\r\n";
+    if($countFolders == 1){
+        $directory = $directoryFirst;
+    }
+
+
+
+
+
     /*
   "info": {
     "name": "Пространство",
@@ -623,6 +634,12 @@ function get_series_info($pdo, $series_id=null) {
 
     ];
 
+//    echo '$directory: '.print_r($directory,1)."<BR>\r\n";
+//    $emptySeries = cleanPath($row['path']);
+//    echo '$emptySeries: '.print_r($emptySeries,1)."<BR>\r\n";
+
+//    echo '$stmt->rowCount(): '.print_r($stmt->rowCount(),1)."<BR>\r\n";exit();
+
     if (!$row) return ['episodes' => []];
 
     $targetTitle = $row['title'];
@@ -646,7 +663,10 @@ function get_series_info($pdo, $series_id=null) {
     $stmt = $pdo->prepare($sql);
     $stmt->execute([':directory' => "%$directory%"]);
 
-//    echo '$stmt->rowCount(): '.print_r($stmt->rowCount(),1)."<BR>\r\n";
+//    $emptySeries = cleanPath($row['path']);
+//    echo '$emptySeries: '.print_r($emptySeries,1)."<BR>\r\n";
+//
+//    echo '$stmt->rowCount(): '.print_r($stmt->rowCount(),1)."<BR>\r\n";exit();
 
     $episodes = [];
     $episode_num = 1;
@@ -685,7 +705,7 @@ function get_series_info($pdo, $series_id=null) {
 //            'episode_num' => $episode_num++,
             'episode_num' => $episodeNum[$sesonName],
             'container_extension' => $row['extension'],
-            'movie_image' => PROTOCOLS. '://'.DOMAIN.'/'.'posters/nauka.jpeg',
+            'movie_image' => PROTOCOLS. '://'.DOMAIN.'/'.'posters/nauka.jpeg?t='.time(),
 //            'cover' => PROTOCOLS. '://'.DOMAIN.'/'.$row['cover_file'],
             'cover' => PROTOCOLS. '://'.DOMAIN.'/'.'posters/nauka.jpeg',
             'rating'              => (!empty($row['rating']) ? $row['rating'] : 6.9 ),
@@ -694,7 +714,7 @@ function get_series_info($pdo, $series_id=null) {
                 'plot'=>' asdh kjhdkjsh dlkjhs dlkhsa dhaslkjdhasjd hashdjah',
                 'duration_secs'=>'334',
                 'duration'=>'2.3',
-                'movie_image'=>PROTOCOLS. '://'.DOMAIN.'/'. (!empty($row['movie_image']) ? $row['movie_image'] : $row['cover_file'] ),
+                'movie_image'=>PROTOCOLS. '://'.DOMAIN.'/'. (!empty($row['movie_image']) ? $row['movie_image'] : $row['cover_file'] ).'?t='.time(),
             ],
 
 
@@ -723,4 +743,43 @@ function getCodecInfo($filePath) {
         'video' => $videoCodec,
         'audio' => $audioCodec
     ];
+}
+
+
+function cleanPath($path) {
+    global $rootPaths, $folders;
+    // Убираем стартовые пути
+    foreach ($rootPaths as $root) {
+        if (strpos($path, $root) === 0) {
+            $path = substr($path, strlen($root));
+            break;
+        }
+    }
+
+    $path = ltrim($path, "/"); // убрать ведущий /
+
+    // Убираем первую встреченную категорию
+    foreach ($folders as $folder) {
+        if (strpos($path, $folder . "/") === 0) {
+            $path = substr($path, strlen($folder) + 1);
+            break;
+        }
+    }
+
+    return $path;
+}
+
+
+function countFolders($path) {
+    // сначала чистим
+    $clean = cleanPath($path);
+
+    // разбиваем
+    $parts = explode('/', $clean);
+
+    // последний элемент — файл, его исключаем
+    array_pop($parts);
+
+    // возвращаем количество папок
+    return count($parts);
 }

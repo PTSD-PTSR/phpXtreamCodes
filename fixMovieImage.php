@@ -37,6 +37,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
     // например, кадр на 7-й секунде
     $time = 7;
+    $time = 480; // 8min
 
     $cmd = "/usr/bin/ffmpeg -ss {$time} -i " . escapeshellarg($path) ." -vframes 1 -q:v 2 " . escapeshellarg($output) . " -y 2>&1";
 //    echo '$cmd: '.print_r($cmd,1)."<BR>\r\n";
@@ -65,5 +66,7 @@ if(!empty($count)){
 
     sleep(2); // подождать 2 секунды
     header("Location: ".$_SERVER['PHP_SELF'].'?time='.time()); // reload текущей страницы
+    ob_flush();
+
     exit;
 }
