@@ -1,0 +1,5 @@
+RewriteEngine On
+
+## Xtream Codes
+RewriteRule ^(movie|series)/([^/]+)/([^/]+)/([0-9]+)\.([^/]+)$ stream.php?username=$2&password=$3&stream=$4 [QSA,L]
+RewriteRule ^(movie|series)/([^/]+)/([^/]+)/([0-9]+)$ stream.php?username=$2&password=$3&stream=$4 [QSA,L]
